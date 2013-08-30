@@ -18,19 +18,18 @@ def mate(pop):
          new = []
 
          for pup in pop:
-             pup[1] += 1 #do they age before or after the loop??
+             pup[1] += 1 
              if pup[1] > 0 and pup[1] < 4:
                 new.append([popId, 0, pup[0]])
                 new.append([popId + 1, 0, pup[0]])
                 popId += 2
-             #pup[1] += 1 #do they age before or after the loop??
+             
          pop.extend(new)
          
      mate(pop)
      return pop
 
 if __name__ == "__main__":
-     #random.seed(1)
      end = mate([])
      
      ages = []
