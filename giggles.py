@@ -32,16 +32,21 @@ def mate(pop):
 if __name__ == "__main__":
      #random.seed(1)
      end = mate([])
-     '''
-     thresh = 30
-     meet = []
+     
+     ages = []
+
+     for i in range(0, end[0][1] + 1):
+         ages.append([])
 
      for pup in end:
-          
-          chance = random.randrange(1, 100)
-          if (chance <= thresh) and not pup == end[0]:
-               meet.append(pup)     
-     '''
+         ages[pup[1]].append(pup)
+
+     
+     for i in range(0, end[0][1] + 1):
+         print "Age group:", i
+         print len(ages[i])
+         print "\n-------------"
+     
 
      print (len(end) - 1)*.3 
      print "\n----------------------------------\n"
