@@ -4,26 +4,30 @@ import random
 
 popId = 0
 
-def mate(pop, count):
+def mate(pop):
      global popId
-
-     if count >= 5:
+     
+     if len(pop) == 0:
+         pop.append([popId, 0]) #Giggles
+         popId += 1
+     
+     elif pop[0][1] > 4:
          return pop
 
      else:
          new = []
 
-         if len(pop) == 0:
-             pop.append(popId)
-             pop.append(popId + 1)
-             popId += 2
-         else:
-             for ele in pop:
-                 new.append(popId)
-                 new.append(popId + 1)
-                 popId += 2
-             pop.extend(new)
-         mate(pop, count + 1)
+         for ele in pop:
+             if ele[1] > 0 and ele[1] < 6:
+                new.append([popId, 0])
+                new.append([popId + 1, 0])
+                popId += 2
+             ele[1] += 1
+         pop.extend(new)
+         
+     mate(pop)
+     return pop
 
 if __name__ == "__main__":
-    print mate([], 0)
+    end = mate([])
+    print end
